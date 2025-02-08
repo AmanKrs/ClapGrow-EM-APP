@@ -34,6 +34,12 @@ interface EmployeeDetails {
   role: "Developer" | "Designer" | "Manager";
   joiningDate: string;
 }
+
+const EJ_SERVICE_ID = import.meta.env.VITE_EJ_SERVICE_ID;
+const EJ_TMEPLATE_ID = import.meta.env.VITE_EJ_TMEPLATE_ID;
+const EJ_PUBLIC_KEY = import.meta.env.VITE_EJ_PUBLIC_KEY;
+
+console.log(EJ_SERVICE_ID, EJ_TMEPLATE_ID, EJ_PUBLIC_KEY);
 const EmpForm = () => {
   const [employee, setEmployee] = useState<EmployeeDetails[]>([]);
   const context = useContext(ThemeProviderContext);
@@ -65,8 +71,8 @@ const EmpForm = () => {
     };
 
     emailjs
-      .send("service_iys87gq", "template_jv4xpto", templateParams, {
-        publicKey: "Sy-d_9hKXf1H_4u2C",
+      .send(EJ_SERVICE_ID, EJ_TMEPLATE_ID, templateParams, {
+        publicKey: EJ_PUBLIC_KEY,
       })
       .then((response) => console.log("Email sent successfully", response))
       .catch((error) => console.error("Email send error", error));
