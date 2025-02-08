@@ -1,55 +1,64 @@
-<<<<<<< HEAD
+
 # ClapGrow-EM-APP
 Employement Registration App
 =======
-# React + TypeScript + Vite
+# React + TypeScript + Vite + Clerk + shadcn +AG Grid
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React + TypeScript application for managing employees, featuring authentication, form validation, data display, and theming. It utilizes:
 
-Currently, two official plugins are available:
+Clerk Authentication for secure login/logout
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React Hook Form & Zod for form validation
 
-## Expanding the ESLint configuration
+AG Grid for displaying employee data
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+ShadCN UI & TailwindCSS for modern styling
 
-- Configure the top-level `parserOptions` property like this:
+EmailJS for sending email notifications
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+LocalStorage for data persistence.
+
+📌 Features
+
+🔐 Authentication: Users must log in via Clerk to access the app.
+
+📊 Employee Data Table: Displays employee records with sorting & filtering using AG Grid.
+
+🎨 Dark Mode: Integrated with ShadCN's theme system.
+
+📩 Email Notifications: Sends emails when a new employee is added.
+
+🚀 Getting Started
+
+1️⃣ Clone the Repository
+ ```bash
+      git clone https://github.com/AmanKrs/employee-management-app.git
+      cd employee-management-app
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2️⃣ Install Dependencies
+ ```bash
+     npm install
 ```
->>>>>>> 2ac2ef1 (Created a basic Web App)
+3️⃣ Set Up Environment Variables with your details
+ ```bash
+     VITE_CLERK_PUBLISHABLE_KEY=
+     CLERK_SECRET_KEY=
+     EJ_SERVICE_ID=
+     EJ_TMEPLATE_ID=
+     EJ_PUBLIC_KEY=
+```
+4️⃣ Start the Application
+ ```bash
+   npm run dev
+```
+📌 Upgradation
+
+1️⃣ We can use node.js/express.js for server validation of the form and can store data in the MongoDB atlas.
+2️⃣ We will use the node.js email package to send emails to the user.
+3️⃣ For data persistence we can use Redux/ useContext in React.js
+4️⃣ For feature upgrades we can web by adding new features like:
+```
+- User validation for Adding Employee, only Specific users have access to the form and others can only have read access.
+- We can add/assign tasks to a specific employee.
+- We can add periodic sending mail for employees with payslips and other documents and assign course to them.
+```
