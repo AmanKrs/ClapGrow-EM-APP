@@ -51,6 +51,7 @@ const EmployeeDetail = (props: EmployeeGridProps) => {
           rowData={employee}
           columnDefs={columns}
           pagination={true}
+          className="w-full"
         />
       </div>
     </>

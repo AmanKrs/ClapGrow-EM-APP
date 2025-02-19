@@ -93,17 +93,17 @@ const EmpForm = () => {
   };
   return (
     <div
-      className={`flex items-center justify-evenly min-h-screen  box-border ${
+      className={`flex flex-col lg:flex-row items-center justify-center min-h-screen p-4 gap-6 ${
         context.theme === "dark" ? "bg-slate-700" : "bg-gray-100"
       }`}
     >
-      <Card className="w-1/4">
+      <Card className="w-full max-w-md lg:max-w-xs">
         <CardHeader>
           <CardTitle>Add Employee </CardTitle>
           <CardDescription>Employee Registration Form.</CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">Name</Label>
@@ -169,7 +169,7 @@ const EmpForm = () => {
                   <p className="text-red-500">{`${errors.role.message}`}</p>
                 )}
               </div>
-              <div className="flex flex-col space-y-1.5">
+              <div>
                 <Label htmlFor="date">Joining Date</Label>
                 <Input
                   {...register("joiningDate")}
@@ -184,22 +184,18 @@ const EmpForm = () => {
                   <p className="text-red-500">{`${errors.joiningDate.message}`}</p>
                 )}
               </div>
-              <div className="flex flex-col space-y-1.5">
-                <CardFooter className="flex justify-between">
-                  <Button variant="outline">Cancel</Button>
-                  <Button disabled={isSubmitting} type="submit">
-                    Add Employee
-                  </Button>
-                </CardFooter>
-                {/* <button disabled={isSubmitting} type="submit">
+
+              <CardFooter className="flex justify-between">
+                <Button variant="outline">Cancel</Button>
+                <Button disabled={isSubmitting} type="submit">
                   Add Employee
-                </button> */}
-              </div>
+                </Button>
+              </CardFooter>
             </div>
           </form>
         </CardContent>
       </Card>
-      <Card className="w-4/6">
+      <Card className="w-full max-w-3xl">
         <CardHeader>
           <CardTitle>Employee List</CardTitle>
           <CardDescription>Employee Details table.</CardDescription>
@@ -207,7 +203,7 @@ const EmpForm = () => {
         {employee.length > 0 ? (
           <EmployeeDetail employee={employee} />
         ) : (
-          <p className="p-3 text-red-500">
+          <p className="p-3 text-red-500  text-center">
             No data to Preview. Please Add Employee Details.
           </p>
         )}

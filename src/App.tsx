@@ -4,9 +4,11 @@ import "./App.css";
 import EmpForm from "./Components/EmpForm/EmpForm";
 import { SignIn, useAuth } from "@clerk/clerk-react";
 import { useEffect } from "react";
-
+import { useTheme } from "@/components/theme-provider";
+import { dark, shadesOfPurple } from "@clerk/themes";
 function App() {
   const { isSignedIn } = useAuth();
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (isSignedIn) {
@@ -29,7 +31,11 @@ function App() {
             path="/sign-in"
             element={
               <div className="flex items-center justify-center h-screen">
-                <SignIn />
+                <SignIn
+                  appearance={{
+                    baseTheme: theme === "dark" ? dark : shadesOfPurple,
+                  }}
+                />
               </div>
             }
           />
