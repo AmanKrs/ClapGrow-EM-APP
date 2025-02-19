@@ -6,6 +6,7 @@ import { SignIn, useAuth } from "@clerk/clerk-react";
 import { useEffect } from "react";
 import { useTheme } from "@/components/theme-provider";
 import { dark, shadesOfPurple } from "@clerk/themes";
+
 function App() {
   const { isSignedIn } = useAuth();
   const { theme } = useTheme();
