@@ -176,6 +176,7 @@ const EmpForm = () => {
                   type="date"
                   id="date"
                   placeholder="Joining Date"
+                  onFocus={(e) => e.target.showPicker()}
                   onChange={(e) => {
                     console.log(e.target.value);
                   }}
